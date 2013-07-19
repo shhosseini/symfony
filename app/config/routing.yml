@@ -1,0 +1,19 @@
+news_blog:
+    resource: "@NEWSBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+login:
+    pattern:   /Login
+    defaults:  { _controller: NEWSBlogBundle:Page:Login }
+login_check:
+    pattern:   /login_check
+logout:
+    path:   /logout
+create:
+    pattern:   /create
+    defaults:  { _controller: NEWSBlogBundle:User:create }
+homepage:
+    pattern: /blog
+
+_imagine:
+    resource: .
+    type:     imagine

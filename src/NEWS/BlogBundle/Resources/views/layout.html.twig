@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block sidebar_content %}
+
+    {% for important_news in all_important_news %}
+        <article id="sidebar-content">
+            <header>
+                <h2 id="sidebar-title">{{ important_news.title }}</h2>
+                <h2> ( {{ important_news.numberOfComments }} {{ 'Comments'|trans }} )</h2>
+
+            </header>
+            <br/>
+            <div class="snippet">
+                <p>{{ important_news.text(5) }}</p>
+                <p class="continue"><a href="{{ path('NEWSBlogBundle_news_show', { 'id': important_news.id }) }}">{{ 'Continue reading'|trans }}...</a></p>
+                <br/>
+                <br/>
+            </div>
+        </article>
+    {% else %}
+        <p> {{ 'No Important News'|trans }}</p>
+    {% endfor %}
+
+
+        {% endblock %}

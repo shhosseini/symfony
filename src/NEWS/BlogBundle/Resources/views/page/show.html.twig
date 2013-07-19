@@ -1,0 +1,28 @@
+{# src/NEWS/BlogBundle/Resouces/views/show.html.twig #}
+{% extends 'NEWSBlogBundle::layout.html.twig' %}
+
+{% block title %} blog title{% endblock %}
+
+{% block body %}
+    <article class="blog">
+        <header>
+            <div class="date"><time datetime="{{ news.createdDate|date('c') }}">{{ news.createdDate|date('l, F j, Y') }}
+            </time></div>
+            <h2>{{ news.title }}</h2>
+        </header>
+        <img src="{{ asset(['images/', news.picPath]|join)  }}" alt="{{ news.title }} image not found" class="large" />
+        <br/>
+        <br/>
+        <div>
+            <p>{{ news.text }}</p>
+        </div>
+    </article>
+    <section class="comments" id="comments">
+        <section class="previous-comments">
+            <h3>Comments</h3>
+            {% include 'NEWSBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+            <h3>Add Comment</h3>
+            {% render controller('NEWSBlogBundle:Comment:create' , { 'blog_id': news.id }) %}
+        </section>
+    </section>
+{% endblock %}

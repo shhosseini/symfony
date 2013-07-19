@@ -1,0 +1,86 @@
+{% extends "NEWSBlogBundle::layout.html.twig" %}
+hello
+{% block body %}
+   hello
+{% endblock %}
+
+
+
+
+{#<form action="{{ path('NEWSBundle_results') }}" method="post" {{ form_enctype(form) }} class="well form-search">
+   <form novalidate=novalidate action="{{ path('BlogBundle_search') }}" method="post" {{ form_enctype(form) }} class="well form-search">
+       salam
+       <!-- form errors -->
+       {{ form_errors(form) }}
+
+       {{ form_errors(form.title) }}
+       {{ form_widget(form.title, { 'attr': { 'data-url': path('BlogBundle_ajax'), 'class': 'input-medium search-query' } } ) }}
+
+       {{ form_rest(form) }}
+
+       <input class="btn btn-primary clear" type="submit" />
+   </form>
+#}
+
+
+
+
+
+
+{#
+{% extends "NEWSBlogBundle::layout.html.twig" %}
+
+{% block title %}{{ 'Search'|trans }}{% endblock%}
+
+        {% stylesheets '@NEWSBlogBundle/Resources/public/css/*' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% javascripts
+            '@NEWSBlogBundle/Resources/public/js/jquery.js'
+            '@NEWSBlogBundle/Resources/public/js/jquery-ui.js'
+            '@NEWSBlogBundle/Resources/public/js/main.js'
+            %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+{% block body %}
+    <header>
+        <h1>{{ 'Search'|trans }}:</h1>
+    </header>
+
+    {% if app.session.hasFlash('blogger-notice') %}
+        <div class="blogger-notice">
+            {{ app.session.flash('blogger-notice') }}
+        </div>
+
+
+    {% endif %}
+
+    {% block tutorial_body %}
+      <div id="content">
+
+      &#123;&#35;     <form action="{{ path('NEWSBundle_results') }}" method="post" {{ form_enctype(form) }} class="well form-search">&#35;&#125;
+            <form novalidate=novalidate action="{{ path('BlogBundle_search') }}" method="post" {{ form_enctype(form) }} class="well form-search">
+            salam
+                <!-- form errors -->
+                {{ form_errors(form) }}
+
+                {{ form_errors(form.title) }}
+                {{ form_widget(form.title, { 'attr': { 'data-url': path('BlogBundle_ajax'), 'class': 'input-medium search-query' } } ) }}
+
+                {{ form_rest(form) }}
+
+                <input class="btn btn-primary clear" type="submit" />
+            </form>
+
+        </div>
+    {% endblock %}
+{% endblock %}
+
+
+
+
+
+#}

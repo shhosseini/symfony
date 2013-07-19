@@ -1,0 +1,54 @@
+NEWS\BlogBundle\Entity\Author:
+    type: entity
+    table: null
+    repositoryClass: NEWS\BlogBundle\Entity\AuthorRepository
+
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        Name:
+            type: string
+            length: 255
+            unique: false
+        Surname:
+            type: string
+            length: 255
+        username:
+            type: string
+            length: 255
+            unique: true
+        password:
+            type: string
+            length: 12
+        salt:
+            type: string
+            length: 32
+        isActive:
+            type: boolean
+
+
+#    oneToOne:
+#        category:
+#         targetEntity: NEWS\BlogBundle\Entity\Category
+#         joinColumn:
+#          name: category_id
+#          referencedColumnName: id
+    manyToOne:
+          category:
+            targetEntity: NEWS\BlogBundle\Entity\Category
+            inversedBy: authors
+
+    oneToMany:
+        posts:
+          targetEntity: NEWS\BlogBundle\Entity\Post
+          mappedBy: post
+          orderBy:
+              createdDate: DESC
+
+
+
+    lifecycleCallbacks: {  }

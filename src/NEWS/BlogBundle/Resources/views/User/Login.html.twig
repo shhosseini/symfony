@@ -1,0 +1,36 @@
+{# src/NEWS/BlogBundle/Resources/views/Page/Login.html.twig #}
+{% extends 'NEWSBlogBundle::layout.html.twig' %}
+
+{% block title %}{{ 'Login Page'|trans }}{% endblock%}
+
+{% block body %}
+    <header>
+
+    </header>
+
+    {% if app.session.hasFlash('blogger-notice') %}
+        <div class="blogger-notice">
+            {{ app.session.flash('blogger-notice') }}
+        </div>
+
+    {% endif %}
+
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+
+    <form action="{{ path('login_check') }}" method="post">
+        <label for="username">{{ 'Username'|trans }}</label>
+        <input type="text" id="username" name="username" value="{{ last_username }}" style="display: block; float: none;"/>
+
+        <label for="password">{{ 'Password'|trans }}</label>
+        <input type="password" id="password" name="password" style="display: block; float: none;" />
+
+        {#
+            If you want to control the URL the user is redirected to on success (more details below)
+        #}
+
+        <button type="submit">{{ 'Login'|trans }}</button>
+    </form>
+
+{% endblock %}

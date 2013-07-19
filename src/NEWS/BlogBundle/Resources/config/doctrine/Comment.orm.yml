@@ -1,0 +1,29 @@
+NEWS\BlogBundle\Entity\Comment:
+    type: entity
+    table: null
+    repositoryClass: NEWS\BlogBundle\Entity\CommentRepository
+
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: text
+            length: 12
+            nullable: false
+        text:
+            type: string
+            length: 4095
+        submitTime:
+            type: datetime
+
+    manyToOne:
+      post:
+        targetEntity: NEWS\BlogBundle\Entity\Post
+        inversedBy: comments
+        nullable: false
+
+    lifecycleCallbacks: {  }

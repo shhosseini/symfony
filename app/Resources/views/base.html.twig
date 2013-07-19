@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- C:\path\to\webroot\Symfony\app\Resources\views\base.html.twig-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset=Utf-8" />
+    <title>{% block title %}{% endblock %} {{ 'News Blog'|trans }}</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    {% block stylesheets %}
+        <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
+        <link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+
+<section id="wrapper">
+    <header id="header">
+        <div class="top">
+            {% block navigator %}
+                <nav>
+                    <ul class="navigator">
+                        <li class="nav_right"><a href="{{ path('NEWSBlogBundle_setEnglish') }}">{{ 'English'|trans }}</a></li>
+                        <li class="nav_right"><a href="{{ path('NEWSBlogBundle_setFarsi') }}">{{ 'فارسی'|trans }}</a></li>
+                        <li class="nav_right"><a href="{{ path('NEWSBlogBundle_log') }}">{{ 'Login/Logout'|trans }}</a></li>
+                    </ul>
+                </nav>
+            {% endblock %}
+
+            <hgroup>
+                <h2>{% block blog_title %}<a href="{{ path('NEWSBlogBundle_homepage') }}">{{ 'News Blog'|trans }}</a>{% endblock %}</h2>
+                <h3>{% block blog_tagline %}<a href="{{ path('NEWSBlogBundle_homepage') }}">{{ 'Newest News!'|trans }}</a>{% endblock %}</h3>
+            </hgroup>
+
+
+            {% block main_navigation %}
+                <nav>
+                    <ul class="main_navigation">
+                        <li class="nav_left"><a href="{{ path('NEWSBlogBundle_homepage') }}">{{ 'Home'|trans }}</a></li>
+                        <li class="nav_left"><a href="{{ path('NEWSBlogBundle_newpost') }}">{{ 'New Post'|trans }}</a></li>
+                        <li class="nav_left"><a href="{{ path('NEWSBlogBundle_registration') }}">{{ 'Register'|trans }}</a></li>
+                        <li class="nav_left"><a href="{{ path('NEWSBlogBundle_subscribe') }}">{{ 'Subscribe'|trans }}</a></li>
+                        <li class="nav_left"><a href="{{ path('NEWSBlogBundle_about') }}">{{ 'About'|trans }}</a></li>
+                        <li class="nav_left"><a href="#">{{ 'Contact Us'|trans }}</a></li>
+                    </ul>
+                </nav>
+            {% endblock %}
+        </div>
+
+    </header>
+
+    <section class="main-col">
+        {% block body %}{% endblock %}
+    </section>
+    <aside class="sidebar">
+        {% block sidebar %}
+
+            <div id="sidebar-header"> {{ 'Most Important'|trans }} </div>
+            <br/>
+            {% block sidebar_content %}
+            {% endblock %}
+
+        {% endblock %}
+    </aside>
+
+    <div id="footer">
+        {% block footer %}
+        {% endblock %}
+    </div>
+</section>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,31 @@
+{# src/Blogger/BlogBundle/Resources/views/Page/index.html.twig #}
+{% extends 'NEWSBlogBundle::layout.html.twig' %}
+
+{% block body %}
+    {% for news in all_news %}
+        <article class="blog">
+            <br/>
+            <br/>
+            <br/>
+            <div class="date"><time datetime="{{ news.createdDate|date('c') }}">{{ news.createdDate|date('l, F j, Y') }}</time></div>
+            <header>
+                <h2><a href="{{ path('NEWSBlogBundle_news_show', { 'id': news.id }) }}">{{ news.title }}</a></h2>
+            </header>
+
+            <img src="{{ asset(['images/', news.picPath]|join) }}" />
+            <div class="snippet">
+                <p>{{ news.text(10) }}</p>
+                <p class="continue"><a href="{{ path('NEWSBlogBundle_news_show', { 'id': news.id }) }}">Continue reading...</a></p>
+
+            </div>
+
+            <footer class="meta">
+                <p>Comments: {{  news.numberOfComments}}</p>
+                <p>Posted by <span class="highlight">{{news.author}}</span> at {{ news.createdDate|date('h:iA') }}</p>
+                <p> Category: <span class="highlight">{{news.category}} </span></p>
+            </footer>
+        </article>
+    {% else %}
+        <p> خبری در سامانه وجود ندارد.</p>
+    {% endfor %}
+{% endblock %}

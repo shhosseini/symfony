@@ -1,0 +1,33 @@
+NEWS\BlogBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: NEWS\BlogBundle\Entity\CategoryRepository
+
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+
+    oneToMany:
+        authors:
+            targetEntity: NEWS\BlogBundle\Entity\Author
+            mappedBy: author
+
+    oneToMany:
+      posts:
+        targetEntity: NEWS\BlogBundle\Entity\Post
+        mappedBy: post
+        orderBy:
+          createdDate: DESC
+      emails:
+        targetEntity: NEWS\BlogBundle\Entity\Subscribers
+        mappedBy: category
+
+lifecycleCallbacks: {  }

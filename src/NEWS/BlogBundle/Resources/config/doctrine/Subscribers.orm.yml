@@ -1,0 +1,25 @@
+NEWS\BlogBundle\Entity\Subscribers:
+    type: entity
+    table: null
+    repositoryClass: NEWS\BlogBundle\Entity\SubscribersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        email:
+            type: string
+            nullable: false
+
+
+    manyToOne:
+      category:
+        targetEntity: NEWS\BlogBundle\Entity\Category
+        inversedBy: emails
+        nullable: false
+
+
+    lifecycleCallbacks: {  }

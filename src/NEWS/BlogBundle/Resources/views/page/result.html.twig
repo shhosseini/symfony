@@ -1,0 +1,19 @@
+{% extends "NEWSBlogBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block tutorial_body %}
+    <div id="content">
+        <a href="{{ path('NEWSBlogBundle_search') }}" class="btn">Return</a>
+        <hr />
+        <ul>
+            {% for post in posts %}
+                <li>
+                    {{ post.title }} ({{ post.createddate|date('Y') }})<br />
+                </li>
+            {% else %}
+                <div class="alert">Sorry ^^'</div>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

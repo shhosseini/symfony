@@ -1,0 +1,17 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+
+    mailer_transport:  gmail
+    mailer_encryption: ssl
+    mailer_auth_mode: login
+    mailer_host:       smtp.gmail.com
+    mailer_user:       symfony2.newsblog
+    mailer_password:   symfonysymfony
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt

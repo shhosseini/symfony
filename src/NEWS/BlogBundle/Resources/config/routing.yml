@@ -1,0 +1,120 @@
+NEWSBlogBundle_homepage:
+    pattern:  /blog
+    defaults: { _controller: NEWSBlogBundle:Page:index }
+    requirements:
+        _method:  GET
+
+NEWSBlogBundle_about:
+    pattern:  /about
+    defaults: { _controller: NEWSBlogBundle:Page:about }
+    requirements:
+        _method:  GET
+
+NEWSBlogBundle_newpost:
+     pattern:  /newpost
+     defaults: { _controller: NEWSBlogBundle:Page:newpost }
+     requirements:
+         _method:  GET|POST
+
+NEWSBlogBundle_submitNewPost:
+     pattern:  /newpost/submit
+     defaults: { _controller: NEWSBlogBundle:Page:submitNewPost }
+     requirements:
+         _method:  GET|POST
+
+NEWSBlogBundle_email:
+     pattern:  /email/{emails}/{url}
+     defaults: { _controller: NEWSBlogBundle:Page:email }
+     requirements:
+         _method:  GET|POST
+
+
+NEWSBlogBundle_subscribe:
+    pattern:  /subscribe
+    defaults: { _controller: NEWSBlogBundle:Page:subscribe}
+    requirements:
+        _method:  GET|POST
+
+NEWSBlogBundle_submitSubscribe:
+    pattern:  /subscribe/submit
+    defaults: { _controller: NEWSBlogBundle:Page:submitSubscribe}
+    requirements:
+        _method:  GET|POST
+
+
+
+NEWSBlogBundle_editPic:
+    pattern:  /editPic/{id}
+    defaults: { _controller: NEWSBlogBundle:Page:editPic }
+    requirements:
+        _method:  GET
+        id: \d+
+
+NEWSBlogBundle_news_show:
+    pattern:  /{id}
+    defaults: { _controller: NEWSBlogBundle:Page:show }
+    requirements:
+        _method:  GET
+        id: \d+
+
+NEWSBlogBundle_registration:
+    pattern:  /registeration
+    defaults: { _controller: NEWSBlogBundle:Page:registration}
+    requirements:
+        _method:  GET|POST
+
+NEWSBlogBundle_Login:
+    pattern:  /Login
+    defaults: { _controller: NEWSBlogBundle:Page:Login}
+    requirements:
+        _method:  GET|POST
+
+
+NEWSBlogBundle_registration:
+    pattern:  /registeration
+    defaults: { _controller: NEWSBlogBundle:User:registration}
+    requirements:
+        _method:  GET|POST
+
+NEWSBlogBundle_Login:
+    pattern:  /Login
+    defaults: { _controller: NEWSBlogBundle:User:Login}
+    requirements:
+        _method:  GET|POST
+
+NEWSBlogBundle_log:
+    pattern:  /log
+    defaults: { _controller: NEWSBlogBundle:User:log }
+    requirements:
+        _method:  GET
+
+NEWSBlogBundle_setEnglish:
+    pattern:  /setEnglish
+    defaults: { _controller: NEWSBlogBundle:Translate:setEnglish }
+    requirements:
+        _method:  GET|POST
+
+NEWSBlogBundle_setFarsi :
+    pattern:  /setFarsi
+    defaults: { _controller: NEWSBlogBundle:Translate:setFarsi }
+    requirements:
+        _method:  GET|POST
+
+NEWSBlogBundle_logout:
+    pattern:  /logout
+
+NEWSBlogBundle_comment_create:
+    pattern:  /comment/{blog_id}
+    defaults: { _controller: NEWSBlogBundle:Comment:create }
+    requirements:
+        _method:  POST|GET
+        blog_id: \d+
+
+NEWSBlogBundle_search:
+    pattern:   /search
+    defaults: { _controller: NEWSBlogBundle:SearchEngine:search}
+
+NEWSBlogBundle_results:
+    pattern:   /results
+    defaults:  { _controller: NEWSBlogBundle:SearchEngine:getResults }
+

@@ -1,0 +1,29 @@
+{# src/NEWS/BlogBundle/Resources/views/Page/newpost.html.twig #}
+{% extends 'NEWSBlogBundle::layout.html.twig' %}
+
+{% block title %}{{ 'Subscribe To Category'|trans }}{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>{{ 'Subscribe To Category'|trans }}:</h1>
+    </header>
+
+    {% if app.session.hasFlash('blogger-notice') %}
+        <div class="blogger-notice">
+            {{ app.session.flash('blogger-notice') }}
+        </div>
+
+    {% endif %}
+
+    <form action="{{ path('NEWSBlogBundle_submitSubscribe') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_errors(form) }}
+
+
+        {{ form_row(form.email) }}
+        {{ form_row(form.category) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="{{ 'Submit'|trans }}" />
+    </form>
+{% endblock %}

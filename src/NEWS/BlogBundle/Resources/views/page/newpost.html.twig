@@ -1,0 +1,30 @@
+{# src/NEWS/BlogBundle/Resources/views/Page/newpost.html.twig #}
+{% extends 'NEWSBlogBundle::layout.html.twig' %}
+
+{% block title %}{{ 'New Post'|trans }}{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>{{ 'New Post'|trans }}:</h1>
+    </header>
+
+    {% if app.session.hasFlash('blogger-notice') %}
+        <div class="blogger-notice">
+            {{ app.session.flash('blogger-notice') }}
+        </div>
+
+    {% endif %}
+
+    <form action="{{ path('NEWSBlogBundle_submitNewPost') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_errors(form) }}
+
+
+        {{ form_row(form.title) }}
+        {{ form_row(form.text) }}
+        {{ form_row(form.picture) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="{{ 'Submit'|trans }}" />
+    </form>
+{% endblock %}

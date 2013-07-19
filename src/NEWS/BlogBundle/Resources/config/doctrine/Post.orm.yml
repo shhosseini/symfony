@@ -1,0 +1,57 @@
+NEWS\BlogBundle\Entity\Post:
+    type: entity
+    table: null
+    repositoryClass: NEWS\BlogBundle\Entity\PostRepository
+
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        text:
+            type: string
+            length: 8191
+        numberOfTimesViewed:
+            type: integer
+            length: 32
+            default: 0
+        numberOfComments:
+            type: integer
+            length: 32
+            default: 0
+        createdDate:
+            type: datetime
+        picture:
+            type: text
+            nullable: true
+            length: 255
+        picPath:
+            type: text
+            nullable: true
+            length: 225
+
+
+
+    manyToOne:
+        author:
+          targetEntity: NEWS\BlogBundle\Entity\Author
+          inversedBy: posts
+
+        category:
+          targetEntity: NEWS\BlogBundle\Entity\Category
+          inversedBy: posts
+
+    oneToMany:
+        comments:
+         targetEntity: NEWS\BlogBundle\Entity\Comment
+         mappedBy: comment
+         orderBy:
+          submitTime: DESC
+
+
+    lifecycleCallbacks: {  }
